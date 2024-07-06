@@ -4,6 +4,8 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const Register = require("./controllers/registerController");
 const Login = require("./controllers/loginController");
+const middleware = require("./middleware/middleware");
+const UserModel = require("./models/usermodel")
 
 //load environment variables from '.env' file into 'process.env'.
 dotenv.config();
@@ -27,13 +29,17 @@ mongoose.connect(process.env.MONGO_URL).then(() => {
 app.route("/").get((req, res) => {
     res.status(200).json({ msg: "Home page" })
 });
+//home page after login only
+app.route("/home").get(middleware, (req, res) => {
+    res.status(200).json({ msg: "Home after login" });
+})
 //register page
 app.route("/register").post(Register);
 //login page
 app.route("/login").get(Login);
 //movie details page
-app.route("/details").get((req, res) => {
-    res.status(200).json({ msg: "Movie details" })
+app.route("/details").get(middleware, (req, res) => {
+    return res.json({ msg: "Movie details" });
 });
 
 //server connection
