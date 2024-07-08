@@ -1,0 +1,34 @@
+.submit {
+    letter-spacing: 0.05rem;
+    padding: 5px;
+    font-size: x-large;
+    transition: all 0.3s ease;
+    height: 100%;
+    margin-top: 20px;
+}
+
+.submit:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+.btn-google {
+    color: white !important;
+    background-color: #ea4335;
+}
+
+.btn-facebook {
+    color: white !important;
+    background-color: #3b5998;
+}
+
+.link-signup {
+    text-decoration: none;
+    color: rgb(1, 107, 248);
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Euclid Circular A';
+    transition: all 0.3s ease;
+    color: #0dcaf0;
+}
